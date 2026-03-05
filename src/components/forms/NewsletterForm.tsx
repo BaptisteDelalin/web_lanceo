@@ -90,7 +90,10 @@ export default function NewsletterForm({ variant = "default" }: NewsletterFormPr
           className="mt-0.5 rounded border-cream-dark text-primary focus:ring-primary"
         />
         <span className={cn("text-xs", variant === "footer" ? "text-white/50" : "text-text-secondary")}>
-          J&apos;accepte de recevoir la newsletter de Lanceo Access. Désinscription possible à tout moment.
+          J&apos;accepte de recevoir la newsletter de Lanceo Access. Désinscription possible à tout moment.{" "}
+          <a href="/politique-confidentialite" target="_blank" className="underline hover:text-primary">
+            Politique de confidentialité
+          </a>
         </span>
       </label>
       {errors.consent && (

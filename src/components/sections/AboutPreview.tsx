@@ -22,8 +22,8 @@ export default function AboutPreview() {
             Mariam Sahid
           </h2>
           <p className="text-text-secondary leading-relaxed mb-4">
-            Fondatrice de Lanceo Access, Mariam accompagne les entrepreneurs et
-            dirigeants dans la structuration de leur vision et
+            Fondatrice de Lanceo Access à Lille, Mariam accompagne les entrepreneurs et
+            dirigeants de la région Hauts-de-France et de toute la France dans la structuration de leur vision et
             l&apos;accélération de leur développement.
           </p>
           <p className="text-text-secondary leading-relaxed mb-6">

@@ -15,6 +15,7 @@ const schema = z.object({
   phone: z.string().min(10, "Veuillez entrer un numéro valide"),
   offerInterest: z.string().min(1, "Veuillez sélectionner une offre"),
   message: z.string().optional(),
+  website: z.string().max(0).optional(),
   consent: z.literal(true, { message: "Vous devez accepter pour réserver" }),
 });
 
@@ -99,10 +100,17 @@ export default function BookingForm() {
         {...register("message")}
       />
 
+      <div className="absolute opacity-0 -z-10" aria-hidden="true" tabIndex={-1}>
+        <input type="text" {...register("website")} tabIndex={-1} autoComplete="off" />
+      </div>
+
       <label className="flex items-start gap-2 cursor-pointer">
         <input type="checkbox" {...register("consent")} className="mt-0.5 rounded border-cream-dark text-primary focus:ring-primary" />
         <span className="text-sm text-text-secondary">
-          J&apos;accepte que mes données soient traitées pour la gestion de ma demande de rendez-vous.
+          J&apos;accepte que mes données soient traitées pour la gestion de ma demande de rendez-vous.{" "}
+          <a href="/politique-confidentialite" target="_blank" className="underline hover:text-primary">
+            Politique de confidentialité
+          </a>
         </span>
       </label>
       {errors.consent && <p className="text-sm text-red-500">{errors.consent.message}</p>}

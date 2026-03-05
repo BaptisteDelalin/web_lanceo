@@ -14,7 +14,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className="inline-block text-sm font-medium text-primary tracking-wide uppercase mb-4">
-            Cabinet de conseil en stratégie
+            Cabinet de conseil en stratégie — Lille
           </span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-dark leading-tight">
             Structurez votre vision,{" "}
@@ -22,8 +22,8 @@ export default function Hero() {
           </h1>
           <p className="mt-6 text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl">
             Accompagnement stratégique sur mesure pour porteurs de projet,
-            entrepreneurs et dirigeants de TPE/PME. Passez de l&apos;ambition à
-            l&apos;action structurée.
+            entrepreneurs et dirigeants de TPE/PME en Hauts-de-France. Passez
+            de l&apos;ambition à l&apos;action structurée.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Button href="/rendez-vous" size="lg">
@@ -33,6 +33,9 @@ export default function Hero() {
               Découvrir la méthode
             </Button>
           </div>
+          <p className="mt-3 text-sm text-text-secondary">
+            30 min · Gratuit · Sans engagement
+          </p>
         </motion.div>
 
         <motion.div

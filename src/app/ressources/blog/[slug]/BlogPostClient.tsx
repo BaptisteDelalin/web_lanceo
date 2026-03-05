@@ -1,32 +1,66 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
-
-interface BlogPost {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  tags: string[];
-  readingTime: string;
-  content: string;
-}
+import { formatDate } from "@/lib/blog-data";
+import type { BlogPost } from "@/lib/blog-data";
 
 interface Props {
   post: BlogPost;
   relatedPosts: BlogPost[];
 }
 
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+function parseInlineMarkdown(text: string): React.ReactNode[] {
+  const result: React.ReactNode[] = [];
+  // Regex to match **bold** and [text](url)
+  const inlineRegex = /(\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\))/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = inlineRegex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      result.push(text.slice(lastIndex, match.index));
+    }
+
+    if (match[2]) {
+      // Bold: **text**
+      result.push(
+        <strong key={`b-${match.index}`} className="text-dark font-medium">
+          {match[2]}
+        </strong>
+      );
+    } else if (match[3] && match[4]) {
+      // Link: [text](url)
+      const href = match[4];
+      const isInternal = href.startsWith("/");
+      if (isInternal) {
+        result.push(
+          <Link key={`l-${match.index}`} href={href} className="text-primary underline hover:text-primary/80 transition-colors">
+            {match[3]}
+          </Link>
+        );
+      } else {
+        result.push(
+          <a key={`l-${match.index}`} href={href} className="text-primary underline hover:text-primary/80 transition-colors" target="_blank" rel="noopener noreferrer">
+            {match[3]}
+          </a>
+        );
+      }
+    }
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+
+  return result;
 }
 
 function renderMarkdown(content: string) {
@@ -39,15 +73,7 @@ function renderMarkdown(content: string) {
       const text = currentParagraph.join(" ");
       elements.push(
         <p key={elements.length} className="text-text-secondary leading-relaxed mb-4">
-          {text.split("**").map((part, i) =>
-            i % 2 === 1 ? (
-              <strong key={i} className="text-dark font-medium">
-                {part}
-              </strong>
-            ) : (
-              part
-            )
-          )}
+          {parseInlineMarkdown(text)}
         </p>
       );
       currentParagraph = [];
@@ -79,15 +105,7 @@ function renderMarkdown(content: string) {
         <li key={elements.length} className="flex items-start gap-2 text-text-secondary mb-2 ml-4">
           <span className="text-primary mt-1">&#8226;</span>
           <span>
-            {trimmed.replace("- ", "").split("**").map((part, i) =>
-              i % 2 === 1 ? (
-                <strong key={i} className="text-dark font-medium">
-                  {part}
-                </strong>
-              ) : (
-                part
-              )
-            )}
+            {parseInlineMarkdown(trimmed.replace("- ", ""))}
           </span>
         </li>
       );

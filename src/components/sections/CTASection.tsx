@@ -34,6 +34,9 @@ export default function CTASection() {
               Voir les offres
             </Button>
           </div>
+          <p className="mt-4 text-sm text-white/50">
+            30 min · Gratuit · Sans engagement
+          </p>
         </motion.div>
       </div>
     </section>

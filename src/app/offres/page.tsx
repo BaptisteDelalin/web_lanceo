@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import OffresClient from "./OffresClient";
+import { faqItems } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Nos offres d'accompagnement entrepreneurial",
@@ -8,5 +9,26 @@ export const metadata: Metadata = {
 };
 
 export default function OffresPage() {
-  return <OffresClient />;
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <OffresClient />
+    </>
+  );
 }

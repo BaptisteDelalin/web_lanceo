@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/lib/constants";
@@ -10,12 +10,42 @@ import { cn } from "@/lib/utils";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOffresOpen, setIsOffresOpen] = useState(false);
+  const offresRef = useRef<HTMLDivElement>(null);
+
+  const closeOffres = useCallback(() => setIsOffresOpen(false), []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (offresRef.current && !offresRef.current.contains(e.target as Node)) {
+        closeOffres();
+      }
+    }
+    if (isOffresOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOffresOpen, closeOffres]);
+
+  // Close dropdown on Escape
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        closeOffres();
+      }
+    }
+    if (isOffresOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOffresOpen, closeOffres]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -47,22 +77,46 @@ export default function Header() {
           </Link>
 
           <div className="hidden lg:flex lg:items-center lg:gap-8">
-            {navigation.map((item) => (
-              <div key={item.href} className="relative group">
-                <Link
-                  href={item.href}
-                  className="relative text-sm font-medium text-dark-soft hover:text-primary transition-colors duration-200 py-2"
+            {navigation.map((item) =>
+              item.children ? (
+                <div
+                  key={item.href}
+                  className="relative group/dropdown"
+                  ref={offresRef}
                 >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </Link>
-                {item.children && (
-                  <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <button
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded={isOffresOpen}
+                    onClick={() => setIsOffresOpen((prev) => !prev)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setIsOffresOpen((prev) => !prev);
+                      }
+                    }}
+                    className="relative text-sm font-medium text-dark-soft hover:text-primary transition-colors duration-200 py-2 bg-transparent border-none cursor-pointer"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/dropdown:w-full" />
+                  </button>
+                  <div
+                    role="menu"
+                    className={cn(
+                      "absolute left-0 top-full pt-2 transition-all duration-200",
+                      "group-hover/dropdown:opacity-100 group-hover/dropdown:visible",
+                      isOffresOpen
+                        ? "opacity-100 visible"
+                        : "opacity-0 invisible"
+                    )}
+                  >
                     <div className="bg-white rounded-lg shadow-lg border border-cream-dark p-2 min-w-[220px]">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
+                          role="menuitem"
+                          onClick={closeOffres}
                           className="block px-4 py-2.5 text-sm text-dark-soft hover:text-primary hover:bg-cream rounded-md transition-colors"
                         >
                           {child.label}
@@ -70,9 +124,19 @@ export default function Header() {
                       ))}
                     </div>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              ) : (
+                <div key={item.href} className="relative group">
+                  <Link
+                    href={item.href}
+                    className="relative text-sm font-medium text-dark-soft hover:text-primary transition-colors duration-200 py-2"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                </div>
+              )
+            )}
             <Button href="/rendez-vous" size="sm">
               Prendre RDV
             </Button>

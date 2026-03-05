@@ -68,13 +68,14 @@ export default function PolitiqueConfidentialitePage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-dark mb-3">
-                4. Base légale
+                4. Base légale par traitement
               </h2>
-              <p>
-                Le traitement de vos données repose sur votre consentement explicite
-                (formulaires avec case à cocher) et sur notre intérêt légitime
-                (amélioration de nos services).
-              </p>
+              <ul className="list-disc pl-6 mt-2 space-y-1">
+                <li><strong>Formulaire de contact / réservation :</strong> consentement explicite (case à cocher)</li>
+                <li><strong>Newsletter :</strong> consentement explicite (case à cocher, désinscription possible à tout moment)</li>
+                <li><strong>Cookies techniques :</strong> intérêt légitime (fonctionnement du site)</li>
+                <li><strong>Amélioration du service :</strong> intérêt légitime</li>
+              </ul>
             </div>
 
             <div>
@@ -90,19 +91,38 @@ export default function PolitiqueConfidentialitePage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-dark mb-3">
-                6. Partage des données
+                6. Sous-traitants et partage des données
               </h2>
               <p>
                 Vos données ne sont jamais vendues à des tiers. Elles peuvent être
-                partagées avec nos prestataires techniques (hébergement, envoi d&apos;emails)
-                dans le strict cadre de la fourniture de nos services, et toujours dans
-                le respect du RGPD.
+                partagées avec nos sous-traitants techniques, dans le strict cadre de
+                la fourniture de nos services :
+              </p>
+              <ul className="list-disc pl-6 mt-2 space-y-1">
+                <li><strong>Vercel Inc.</strong> (hébergement du site) — États-Unis — protégé par le EU-US Data Privacy Framework</li>
+                <li><strong>Resend Inc.</strong> (envoi d&apos;emails transactionnels) — États-Unis — protégé par le EU-US Data Privacy Framework</li>
+              </ul>
+              <p className="mt-2">
+                Ces sous-traitants sont soumis à des obligations contractuelles conformes
+                au RGPD et ne peuvent utiliser vos données qu&apos;aux fins prévues.
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl font-semibold text-dark mb-3">
-                7. Vos droits
+                7. Transferts hors Union européenne
+              </h2>
+              <p>
+                Certains de nos sous-traitants sont situés aux États-Unis (Vercel, Resend).
+                Ces transferts sont encadrés par le EU-US Data Privacy Framework, garantissant
+                un niveau de protection adéquat conformément à la décision d&apos;adéquation de
+                la Commission européenne du 10 juillet 2023.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-display text-xl font-semibold text-dark mb-3">
+                8. Vos droits
               </h2>
               <p>
                 Conformément au RGPD, vous disposez des droits suivants :
@@ -122,7 +142,7 @@ export default function PolitiqueConfidentialitePage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-dark mb-3">
-                8. Cookies
+                9. Cookies
               </h2>
               <p>
                 Ce site n&apos;utilise pas de cookies publicitaires ni de traceurs tiers.
@@ -134,7 +154,7 @@ export default function PolitiqueConfidentialitePage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-dark mb-3">
-                9. Sécurité
+                10. Sécurité
               </h2>
               <p>
                 Nous mettons en œuvre des mesures techniques et organisationnelles
@@ -145,7 +165,7 @@ export default function PolitiqueConfidentialitePage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-dark mb-3">
-                10. Contact
+                11. Contact
               </h2>
               <p>
                 Pour toute question relative à cette politique de confidentialité,

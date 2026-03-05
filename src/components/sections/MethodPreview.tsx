@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
@@ -22,37 +23,41 @@ export default function MethodPreview() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -4 }}
-            className={`relative rounded-lg p-6 transition-shadow duration-300 ${
-              offer.highlighted
-                ? "bg-primary text-white shadow-lg ring-2 ring-primary"
-                : "bg-white shadow-sm border border-cream-dark"
-            }`}
           >
-            {offer.highlighted && (
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-dark text-white text-xs font-medium px-3 py-1 rounded-full">
-                Populaire
-              </span>
-            )}
-            <div
-              className={`text-sm font-medium mb-2 ${offer.highlighted ? "text-white/70" : "text-primary"}`}
+            <Link
+              href={`/offres/${offer.slug}`}
+              className={`block relative rounded-lg p-6 transition-shadow duration-300 h-full ${
+                offer.highlighted
+                  ? "bg-primary text-white shadow-lg ring-2 ring-primary"
+                  : "bg-white shadow-sm border border-cream-dark hover:shadow-md"
+              }`}
             >
-              Palier {offer.palier}
-            </div>
-            <h3
-              className={`font-display text-lg font-semibold mb-3 ${offer.highlighted ? "text-white" : "text-dark"}`}
-            >
-              {offer.name}
-            </h3>
-            <p
-              className={`text-sm leading-relaxed mb-4 ${offer.highlighted ? "text-white/80" : "text-text-secondary"}`}
-            >
-              {offer.tagline}
-            </p>
-            <div
-              className={`text-xs font-medium ${offer.highlighted ? "text-white/60" : "text-text-secondary"}`}
-            >
-              {offer.duration}
-            </div>
+              {offer.highlighted && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-dark text-white text-xs font-medium px-3 py-1 rounded-full">
+                  Populaire
+                </span>
+              )}
+              <div
+                className={`text-sm font-medium mb-2 ${offer.highlighted ? "text-white/70" : "text-primary"}`}
+              >
+                Palier {offer.palier}
+              </div>
+              <h3
+                className={`font-display text-lg font-semibold mb-3 ${offer.highlighted ? "text-white" : "text-dark"}`}
+              >
+                {offer.name}
+              </h3>
+              <p
+                className={`text-sm leading-relaxed mb-4 ${offer.highlighted ? "text-white/80" : "text-text-secondary"}`}
+              >
+                {offer.tagline}
+              </p>
+              <div
+                className={`text-xs font-medium ${offer.highlighted ? "text-white/60" : "text-text-secondary"}`}
+              >
+                {offer.duration}
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>

@@ -7,6 +7,7 @@ const schema = z.object({
   phone: z.string().min(10),
   offerInterest: z.string().min(1),
   message: z.string().optional(),
+  website: z.string().max(0).optional(),
   consent: z.literal(true),
 });
 
@@ -14,6 +15,10 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const data = schema.parse(body);
+
+    if (data.website) {
+      return NextResponse.json({ success: true });
+    }
 
     // TODO: Integrate Google Calendar API
     // import { google } from 'googleapis';

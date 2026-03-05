@@ -3,47 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Section from "@/components/ui/Section";
-
-const blogPosts = [
-  {
-    slug: "structurer-son-projet-entrepreneurial",
-    title: "Comment structurer son projet entrepreneurial en 5 étapes",
-    description:
-      "Un guide pratique pour passer de l'idée au plan d'action concret, en évitant les pièges classiques du démarrage.",
-    date: "2025-12-15",
-    author: "Mariam Sahid",
-    tags: ["Stratégie", "Lancement"],
-    readingTime: "8 min",
-  },
-  {
-    slug: "modele-economique-viable",
-    title: "Construire un modèle économique viable : les fondamentaux",
-    description:
-      "Les clés pour bâtir un modèle économique solide qui résiste au temps et soutient votre croissance.",
-    date: "2025-11-28",
-    author: "Mariam Sahid",
-    tags: ["Business Model", "Croissance"],
-    readingTime: "10 min",
-  },
-  {
-    slug: "erreurs-entrepreneurs-debutants",
-    title: "Les 7 erreurs que font les entrepreneurs débutants",
-    description:
-      "Retour d'expérience sur les obstacles les plus fréquents et comment les transformer en opportunités d'apprentissage.",
-    date: "2025-11-10",
-    author: "Mariam Sahid",
-    tags: ["Conseils", "Lancement"],
-    readingTime: "6 min",
-  },
-];
-
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { blogPosts, formatDate } from "@/lib/blog-data";
 
 export default function BlogClient() {
   return (
