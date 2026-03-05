@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     //          <p>${data.message}</p>`,
     // });
 
-    console.log("Contact form submission:", data);
+    // TODO: Integrate Resend when API key is available
 
     return NextResponse.json({ success: true });
   } catch (error) {

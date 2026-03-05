@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     // import { Resend } from 'resend';
     // const resend = new Resend(process.env.RESEND_API_KEY);
 
-    console.log("Booking request:", data);
+    // TODO: Integrate Resend + Google Calendar when API keys are available
 
     return NextResponse.json({ success: true });
   } catch (error) {

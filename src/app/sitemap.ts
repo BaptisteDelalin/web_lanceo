@@ -1,6 +1,12 @@
 import { MetadataRoute } from "next";
 import { offers } from "@/lib/constants";
 
+const blogSlugs = [
+  "structurer-son-projet-entrepreneurial",
+  "modele-economique-viable",
+  "erreurs-entrepreneurs-debutants",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://lanceo-access.fr";
 
@@ -9,6 +15,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }));
+
+  const blogPages = blogSlugs.map((slug) => ({
+    url: `${baseUrl}/ressources/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
   }));
 
   return [
@@ -55,5 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    ...blogPages,
   ];
 }

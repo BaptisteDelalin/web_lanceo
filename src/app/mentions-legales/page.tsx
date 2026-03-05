@@ -104,9 +104,12 @@ export default function MentionsLegalesPage() {
                 Cookies
               </h2>
               <p>
-                Ce site utilise des cookies pour améliorer l&apos;expérience utilisateur et
-                à des fins statistiques. En poursuivant votre navigation, vous acceptez
-                l&apos;utilisation de cookies conformément à notre politique de confidentialité.
+                Ce site n&apos;utilise pas de cookies publicitaires ni de traceurs tiers.
+                Seuls des cookies strictement nécessaires au fonctionnement du site
+                peuvent être utilisés. Pour plus d&apos;informations, consultez notre{" "}
+                <a href="/politique-confidentialite" className="text-primary hover:underline">
+                  politique de confidentialité
+                </a>.
               </p>
             </div>
           </div>

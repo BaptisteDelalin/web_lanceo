@@ -125,10 +125,10 @@ export default function PolitiqueConfidentialitePage() {
                 8. Cookies
               </h2>
               <p>
-                Ce site utilise des cookies essentiels au fonctionnement du site et
-                des cookies analytiques (avec votre consentement) pour mesurer
-                l&apos;audience. Vous pouvez gérer vos préférences via le bandeau cookies
-                affiché lors de votre première visite.
+                Ce site n&apos;utilise pas de cookies publicitaires ni de traceurs tiers.
+                Seuls des cookies strictement nécessaires au fonctionnement technique
+                du site peuvent être déposés. Aucun cookie ne nécessite votre
+                consentement préalable.
               </p>
             </div>
 

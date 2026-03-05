@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     //   }),
     // });
 
-    console.log("Newsletter subscription:", data.email);
+    // TODO: Integrate Brevo when API key is available
 
     return NextResponse.json({ success: true });
   } catch (error) {

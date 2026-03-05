@@ -24,6 +24,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lanceo-access.fr"),
   title: {
     default: "Lanceo Access | Conseil en stratégie entrepreneuriale",
     template: "%s | Lanceo Access",
@@ -70,6 +71,50 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "Lanceo Access",
+              description:
+                "Cabinet de conseil en stratégie entrepreneuriale. Accompagnement sur mesure pour porteurs de projet, entrepreneurs et dirigeants de TPE/PME.",
+              url: "https://lanceo-access.fr",
+              telephone: "0610339237",
+              email: "contact@lanceo-access.fr",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lille",
+                addressRegion: "Hauts-de-France",
+                postalCode: "59000",
+                addressCountry: "FR",
+              },
+              founder: {
+                "@type": "Person",
+                name: "Mariam Sahid",
+                jobTitle: "Consultante en stratégie entrepreneuriale",
+              },
+              areaServed: [
+                { "@type": "City", name: "Lille" },
+                { "@type": "AdministrativeArea", name: "Hauts-de-France" },
+                { "@type": "Country", name: "France" },
+              ],
+              serviceType: [
+                "Conseil en stratégie",
+                "Accompagnement entrepreneurial",
+                "Diagnostic d'entreprise",
+              ],
+              priceRange: "€€",
+              sameAs: [
+                "https://linkedin.com/in/mariam-sahid",
+                "https://instagram.com/lanceo.access",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${playfair.variable} ${cormorant.variable} ${dmSans.variable} font-sans antialiased`}
       >
