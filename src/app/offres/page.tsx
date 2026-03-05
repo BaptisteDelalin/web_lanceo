@@ -3,6 +3,7 @@ import OffresClient from "./OffresClient";
 import { faqItems } from "@/lib/constants";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/offres" },
   title: "Nos offres d'accompagnement entrepreneurial",
   description:
     "4 paliers d'accompagnement adaptés à votre étape : diagnostic, structuration, accélération et accompagnement stratégique complet. Cabinet de conseil à Lille.",

@@ -59,6 +59,8 @@ export default function NewsletterForm({ variant = "default" }: NewsletterFormPr
         <input
           type="email"
           placeholder="Votre email"
+          aria-label="Adresse email pour la newsletter"
+          aria-describedby={errors.email ? "newsletter-email-error" : undefined}
           {...register("email")}
           className={cn(
             "flex-1 rounded-sm px-4 py-2.5 text-sm transition-colors",
@@ -71,7 +73,7 @@ export default function NewsletterForm({ variant = "default" }: NewsletterFormPr
           type="submit"
           disabled={status === "loading"}
           className={cn(
-            "rounded-sm px-4 py-2.5 text-sm font-medium transition-colors",
+            "rounded-sm px-4 py-2.5 text-sm font-medium transition-colors min-h-[44px] min-w-[44px]",
             variant === "footer"
               ? "bg-primary-light text-white hover:bg-primary"
               : "bg-primary text-white hover:bg-primary-dark"
@@ -81,7 +83,7 @@ export default function NewsletterForm({ variant = "default" }: NewsletterFormPr
         </button>
       </div>
       {errors.email && (
-        <p className="text-xs text-red-400">{errors.email.message}</p>
+        <p id="newsletter-email-error" className="text-xs text-red-400">{errors.email.message}</p>
       )}
       <label className="flex items-start gap-2 cursor-pointer">
         <input

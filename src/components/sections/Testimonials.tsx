@@ -1,26 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { testimonials } from "@/lib/constants";
 
 export default function Testimonials() {
+  const { ref, isInView } = useInView({ margin: "-50px" });
+
   return (
     <Section background="white">
       <SectionTitle
         title="Ils ont structuré leur trajectoire"
         subtitle="Découvrez les retours de ceux qui ont fait confiance à Lanceo Access."
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div ref={ref} role="list" aria-label="Témoignages clients" className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {testimonials.map((testimonial, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-cream rounded-lg p-8"
+            role="listitem"
+            className={`bg-cream rounded-lg p-8 animate-fade-up ${isInView ? "in-view" : ""}`}
+            style={{ transitionDelay: `${index * 0.1}s` }}
           >
             <div className="flex items-center gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
@@ -50,7 +50,7 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </Section>

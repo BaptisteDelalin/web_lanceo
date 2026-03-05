@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 import Link from "next/link";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -8,21 +8,20 @@ import Button from "@/components/ui/Button";
 import { offers } from "@/lib/constants";
 
 export default function MethodPreview() {
+  const { ref, isInView } = useInView({ margin: "-50px" });
+
   return (
     <Section background="cream">
       <SectionTitle
         title="La Méthode Lancéo"
         subtitle="Un parcours structuré en 4 paliers pour vous accompagner à chaque étape de votre développement."
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {offers.map((offer, index) => (
-          <motion.div
+          <div
             key={offer.slug}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
+            className={`animate-fade-up hover:-translate-y-1 transition-transform duration-300 ${isInView ? "in-view" : ""}`}
+            style={{ transitionDelay: `${index * 0.1}s` }}
           >
             <Link
               href={`/offres/${offer.slug}`}
@@ -58,7 +57,7 @@ export default function MethodPreview() {
                 {offer.duration}
               </div>
             </Link>
-          </motion.div>
+          </div>
         ))}
       </div>
       <div className="mt-12 text-center">

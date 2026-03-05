@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 
 interface SectionTitleProps {
   title: string;
@@ -9,6 +9,7 @@ interface SectionTitleProps {
   centered?: boolean;
   light?: boolean;
   className?: string;
+  as?: "h1" | "h2" | "h3";
 }
 
 export default function SectionTitle({
@@ -17,23 +18,28 @@ export default function SectionTitle({
   centered = true,
   light = false,
   className,
+  as: Tag = "h2",
 }: SectionTitleProps) {
+  const { ref, isInView } = useInView({ margin: "-100px" });
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
-      className={cn("mb-12 md:mb-16", centered && "text-center", className)}
+    <div
+      ref={ref}
+      className={cn(
+        "mb-12 md:mb-16 animate-fade-up",
+        isInView && "in-view",
+        centered && "text-center",
+        className
+      )}
     >
-      <h2
+      <Tag
         className={cn(
           "font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight",
           light ? "text-white" : "text-dark"
         )}
       >
         {title}
-      </h2>
+      </Tag>
       {subtitle && (
         <p
           className={cn(
@@ -45,6 +51,6 @@ export default function SectionTitle({
           {subtitle}
         </p>
       )}
-    </motion.div>
+    </div>
   );
 }

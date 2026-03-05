@@ -1,10 +1,12 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero";
 import CredibilityBar from "@/components/sections/CredibilityBar";
-import ProblemSection from "@/components/sections/ProblemSection";
-import MethodPreview from "@/components/sections/MethodPreview";
-import Testimonials from "@/components/sections/Testimonials";
-import AboutPreview from "@/components/sections/AboutPreview";
-import CTASection from "@/components/sections/CTASection";
+
+const ProblemSection = dynamic(() => import("@/components/sections/ProblemSection"));
+const MethodPreview = dynamic(() => import("@/components/sections/MethodPreview"));
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
+const AboutPreview = dynamic(() => import("@/components/sections/AboutPreview"));
+const CTASection = dynamic(() => import("@/components/sections/CTASection"));
 
 export default function HomePage() {
   return (

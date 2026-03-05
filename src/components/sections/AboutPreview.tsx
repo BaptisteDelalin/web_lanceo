@@ -1,19 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 
 export default function AboutPreview() {
+  const { ref, isInView } = useInView();
+
   return (
     <Section background="cream-dark">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="order-2 lg:order-1"
+      <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div
+          className={`order-2 lg:order-1 animate-fade-left ${isInView ? "in-view" : ""}`}
         >
           <span className="text-sm font-medium text-primary tracking-wide uppercase">
             À propos
@@ -35,14 +33,10 @@ export default function AboutPreview() {
           <Button href="/a-propos" variant="outline">
             En savoir plus
           </Button>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="order-1 lg:order-2"
+        <div
+          className={`order-1 lg:order-2 animate-fade-right ${isInView ? "in-view" : ""}`}
         >
           <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center max-w-sm mx-auto">
             <div className="text-center">
@@ -54,7 +48,7 @@ export default function AboutPreview() {
               <p className="text-sm text-text-secondary">Photo à venir</p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </Section>
   );

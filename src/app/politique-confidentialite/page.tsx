@@ -134,9 +134,14 @@ export default function PolitiqueConfidentialitePage() {
                 <li>Droit à la limitation du traitement</li>
                 <li>Droit à la portabilité</li>
                 <li>Droit d&apos;opposition</li>
+                <li>Droit de retrait du consentement à tout moment, sans remettre en cause la licéité du traitement effectué avant le retrait</li>
               </ul>
               <p className="mt-2">
-                Pour exercer ces droits, contactez-nous à : contact@lanceo-access.fr
+                Pour exercer ces droits, envoyez votre demande accompagnée d&apos;un
+                justificatif d&apos;identité à : contact@lanceo-access.fr. Nous nous engageons
+                à répondre dans un délai d&apos;un mois suivant la réception de votre demande.
+                Ce délai peut être prolongé de deux mois en cas de demande complexe,
+                auquel cas vous en serez informé.
               </p>
             </div>
 

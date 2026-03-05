@@ -1,7 +1,4 @@
-"use client";
-
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 interface ButtonProps {
@@ -26,7 +23,7 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-colors duration-300 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
+    "inline-flex items-center justify-center font-medium transition-colors duration-300 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary btn-animate";
 
   const variants = {
     primary: "bg-primary text-white hover:bg-primary-dark",
@@ -36,7 +33,7 @@ export default function Button({
   };
 
   const sizes = {
-    sm: "px-4 py-2 text-sm",
+    sm: "px-4 py-2 text-sm min-h-[44px] min-w-[44px]",
     md: "px-6 py-3 text-base",
     lg: "px-8 py-4 text-lg",
   };
@@ -51,24 +48,20 @@ export default function Button({
 
   if (href) {
     return (
-      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-        <Link href={href} className={classes}>
-          {children}
-        </Link>
-      </motion.div>
+      <Link href={href} className={classes}>
+        {children}
+      </Link>
     );
   }
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+    <button
       className={classes}
       onClick={onClick}
       type={type}
       disabled={disabled}
     >
       {children}
-    </motion.button>
+    </button>
   );
 }

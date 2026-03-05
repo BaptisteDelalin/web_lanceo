@@ -144,7 +144,7 @@ export default function Header() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col items-center justify-center gap-1.5 min-h-[44px] min-w-[44px] p-2"
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <motion.span
@@ -175,7 +175,7 @@ export default function Header() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100vh" }}
+            animate={{ opacity: 1, height: "100dvh" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="lg:hidden fixed inset-0 top-20 bg-cream z-40"

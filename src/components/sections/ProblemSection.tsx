@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
 
@@ -26,21 +26,20 @@ const problems = [
 ];
 
 export default function ProblemSection() {
+  const { ref, isInView } = useInView({ margin: "-50px" });
+
   return (
     <Section background="cream-dark">
       <SectionTitle
         title="Vous avez l'ambition, il vous manque la structure"
         subtitle="Ces situations vous parlent ? Vous n'êtes pas seul. Et surtout, il existe une méthode pour en sortir."
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {problems.map((problem, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
-            className="bg-white rounded-lg p-8 text-center"
+            className={`bg-white rounded-lg p-8 text-center animate-fade-up ${isInView ? "in-view" : ""}`}
+            style={{ transitionDelay: `${index * 0.1}s` }}
           >
             <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
               <span className="text-2xl font-bold text-primary">
@@ -53,7 +52,7 @@ export default function ProblemSection() {
             <p className="text-text-secondary leading-relaxed">
               {problem.description}
             </p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </Section>

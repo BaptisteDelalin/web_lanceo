@@ -1,17 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 import Button from "@/components/ui/Button";
 
 export default function CTASection() {
+  const { ref, isInView } = useInView();
+
   return (
     <section className="bg-dark py-20 md:py-28">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          ref={ref}
+          className={`animate-fade-up ${isInView ? "in-view" : ""}`}
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             Prêt à structurer votre projet ?
@@ -37,7 +37,7 @@ export default function CTASection() {
           <p className="mt-4 text-sm text-white/50">
             30 min · Gratuit · Sans engagement
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

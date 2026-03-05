@@ -12,6 +12,9 @@
   --color-accent: #8B6F5C;
   --color-text: #1A1A1A;
   --color-text-secondary: #595959;
+  --color-error: #DC2626;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
 }
 
 @theme inline {
@@ -25,6 +28,9 @@
   --color-accent: var(--color-accent);
   --color-text: var(--color-text);
   --color-text-secondary: var(--color-text-secondary);
+  --color-error: var(--color-error);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
   --font-display: var(--font-playfair);
   --font-serif: var(--font-cormorant);
   --font-sans: var(--font-dm-sans);
@@ -69,4 +75,50 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
+}
+
+/* === Native CSS animations (replacing Framer Motion for simple cases) === */
+
+/* Button hover/tap scale */
+.btn-animate {
+  transition: transform 0.2s ease;
+}
+.btn-animate:hover {
+  transform: scale(1.02);
+}
+.btn-animate:active {
+  transform: scale(0.98);
+}
+
+/* Fade-up animation for IntersectionObserver */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade-in from left */
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-fade-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade-in from right */
+.animate-fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-fade-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
 }

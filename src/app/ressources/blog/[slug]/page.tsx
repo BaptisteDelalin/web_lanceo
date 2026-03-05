@@ -28,6 +28,16 @@ export default async function BlogPostPage({ params }: Props) {
 
   const otherPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://lanceo-access.fr" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://lanceo-access.fr/ressources/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://lanceo-access.fr/ressources/blog/${post.slug}` },
+    ],
+  };
+
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -48,6 +58,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
