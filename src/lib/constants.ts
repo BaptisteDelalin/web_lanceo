@@ -6,7 +6,7 @@ export const siteConfig = {
     "Cabinet de conseil en stratégie entrepreneuriale. Accompagnement sur mesure pour porteurs de projet, entrepreneurs et dirigeants de TPE/PME.",
   url: "https://lanceo-access.fr",
   email: "contact@lanceo-access.fr",
-  phone: "+33 6 00 00 00 00",
+  phone: "06 10 33 92 37",
   address: "Lille, France",
   founder: "Mariam Sahid",
   socials: {

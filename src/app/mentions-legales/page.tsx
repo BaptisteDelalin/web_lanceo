@@ -25,7 +25,7 @@ export default function MentionsLegalesPage() {
                 Fondée par Mariam Sahid<br />
                 Adresse : Lille, France<br />
                 Email : contact@lanceo-access.fr<br />
-                Téléphone : +33 6 00 00 00 00
+                Téléphone : 06 10 33 92 37
               </p>
               <p className="mt-2">
                 SIRET : [Numéro SIRET à compléter]<br />
