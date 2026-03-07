@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/methode" },
   title: "La Méthode Lancéo | Accompagnement entrepreneurial structuré",
   description:
-    "Découvrez la Méthode Lancéo : une approche en 4 paliers pour structurer votre projet entrepreneurial, du diagnostic à l'accompagnement stratégique complet.",
+    "La Méthode Lancéo : une approche en 4 étapes — diagnostic, structuration, stratégie et accompagnement — pour transformer votre ambition entrepreneuriale en résultats concrets.",
 };
 
 export default function MethodePage() {

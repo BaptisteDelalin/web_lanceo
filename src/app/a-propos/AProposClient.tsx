@@ -74,7 +74,7 @@ export default function AProposClient() {
               Mariam Sahid
             </h1>
             <p className="mt-2 text-xl text-primary font-serif italic">
-              Fondatrice de Lanceo Access
+              Consultante en stratégie. Lilloise. Pragmatique.
             </p>
             <p className="mt-6 text-text-secondary leading-relaxed">
               Passionnée par l&apos;entrepreneuriat et convaincue que chaque projet mérite un accompagnement stratégique de qualité, j&apos;ai créé Lanceo Access pour aider les entrepreneurs à transformer leur vision en réalité structurée.

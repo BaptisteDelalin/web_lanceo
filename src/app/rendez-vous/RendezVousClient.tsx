@@ -3,11 +3,13 @@
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import BookingForm from "@/components/forms/BookingForm";
+import CalEmbed from "@/components/ui/CalEmbed";
 import { siteConfig } from "@/lib/constants";
 
 export default function RendezVousClient() {
   return (
     <main>
+      {/* Section 1: Hero */}
       <Section background="cream" className="pt-32 md:pt-40">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
@@ -19,7 +21,7 @@ export default function RendezVousClient() {
               Prendre rendez-vous
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-dark">
-              Échangeons sur votre projet
+              Parlons de votre projet. 30 minutes, sans engagement.
             </h1>
             <p className="mt-6 text-lg text-text-secondary leading-relaxed">
               Réservez un appel découverte gratuit de 30 minutes. C&apos;est l&apos;occasion de faire le point sur votre situation et d&apos;identifier le meilleur accompagnement pour vous.
@@ -28,9 +30,10 @@ export default function RendezVousClient() {
         </div>
       </Section>
 
+      {/* Section 2: Cal.com embed + Info cards */}
       <Section background="white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Booking Form */}
+          {/* Cal.com Embed — Primary booking method */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,9 +41,12 @@ export default function RendezVousClient() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-display text-2xl font-semibold text-dark mb-6">
-              Demander un rendez-vous
+              Choisissez un créneau
             </h2>
-            <BookingForm />
+            <CalEmbed
+              calLink={siteConfig.calLink}
+              className="min-h-[500px] rounded-lg border border-gray-100"
+            />
           </motion.div>
 
           {/* Info */}
@@ -61,9 +67,9 @@ export default function RendezVousClient() {
                     1
                   </span>
                   <div>
-                    <p className="font-medium text-dark">Remplissez le formulaire</p>
+                    <p className="font-medium text-dark">Choisissez un créneau</p>
                     <p className="text-sm text-text-secondary">
-                      Partagez quelques informations sur vous et votre projet.
+                      Sélectionnez la date et l&apos;heure qui vous conviennent dans le calendrier.
                     </p>
                   </div>
                 </li>
@@ -123,6 +129,27 @@ export default function RendezVousClient() {
             </div>
           </motion.div>
         </div>
+      </Section>
+
+      {/* Section 3: Fallback booking form */}
+      <Section background="cream">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-2xl mx-auto"
+        >
+          <div className="text-center mb-8">
+            <h2 className="font-display text-2xl font-semibold text-dark mb-3">
+              Vous préférez ne pas utiliser le calendrier en ligne ?
+            </h2>
+            <p className="text-text-secondary">
+              Remplissez le formulaire ci-dessous et nous vous recontacterons pour convenir d&apos;un créneau.
+            </p>
+          </div>
+          <BookingForm />
+        </motion.div>
       </Section>
     </main>
   );

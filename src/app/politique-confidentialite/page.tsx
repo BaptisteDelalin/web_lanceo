@@ -47,9 +47,13 @@ export default function PolitiqueConfidentialitePage() {
                 <li>Nom et prénom (formulaires de contact et de réservation)</li>
                 <li>Adresse email (formulaires, newsletter)</li>
                 <li>Numéro de téléphone (formulaire de réservation)</li>
-                <li>Données de navigation (cookies, adresse IP, pages visitées)</li>
                 <li>Toute information que vous choisissez de partager dans les messages</li>
               </ul>
+              <p className="mt-2">
+                Ce site n&apos;utilise pas de cookies de suivi ni d&apos;outil
+                d&apos;analyse comportementale. Aucune donnée de navigation
+                n&apos;est collectée à des fins publicitaires.
+              </p>
             </div>
 
             <div>

@@ -20,15 +20,10 @@ export default function AboutPreview() {
             Mariam Sahid
           </h2>
           <p className="text-text-secondary leading-relaxed mb-4">
-            Fondatrice de Lanceo Access à Lille, Mariam accompagne les entrepreneurs et
-            dirigeants de la région Hauts-de-France et de toute la France dans la structuration de leur vision et
-            l&apos;accélération de leur développement.
+            Mariam a accompagné plus de 50 entrepreneurs et dirigeants à Lille et partout en France. Son credo : pas de grands discours, mais un plan d&apos;action clair et un cadre qui vous fait avancer.
           </p>
           <p className="text-text-secondary leading-relaxed mb-6">
-            Forte d&apos;une expérience solide en conseil stratégique et en
-            développement d&apos;entreprise, elle a conçu la Méthode Lancéo
-            pour offrir un cadre clair, pragmatique et adapté à chaque étape du
-            parcours entrepreneurial.
+            Avant de fonder Lanceo Access, elle a passé plusieurs années dans le conseil stratégique auprès de TPE et PME. C&apos;est cette expérience terrain qui l&apos;a poussée à créer la Méthode Lancéo : un accompagnement où chaque euro et chaque heure investis produisent un résultat concret.
           </p>
           <Button href="/a-propos" variant="outline">
             En savoir plus

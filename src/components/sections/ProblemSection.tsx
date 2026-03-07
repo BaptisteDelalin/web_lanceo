@@ -7,21 +7,21 @@ import SectionTitle from "@/components/ui/SectionTitle";
 const problems = [
   {
     icon: "?",
-    title: "Votre vision manque de structure",
+    title: "Vous avez l'idée, mais pas la feuille de route.",
     description:
-      "Vous avez des idées, de l'énergie, mais pas de feuille de route claire pour avancer.",
+      "Vous savez où vous voulez aller, mais chaque matin vous vous demandez par quoi commencer. L'énergie est là. Le plan, non.",
   },
   {
     icon: "!",
-    title: "Vous avancez sans stratégie",
+    title: "Vous pilotez à vue, décision après décision.",
     description:
-      "Les décisions s'accumulent sans cohérence globale. Vous réagissez au lieu d'anticiper.",
+      "Chaque semaine apporte son lot de choix urgents. Mais sans stratégie globale, vous réagissez au lieu de construire.",
   },
   {
     icon: "%",
-    title: "Votre modèle économique est flou",
+    title: "Votre rentabilité reste un angle mort.",
     description:
-      "Vous n'avez pas de vision claire de votre rentabilité et de vos leviers de croissance.",
+      "Vous travaillez, vous facturez — mais vous ne savez pas précisément ce qui est rentable, ce qui ne l'est pas, et où se cachent vos leviers de croissance.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function ProblemSection() {
     <Section background="cream-dark">
       <SectionTitle
         title="Vous avez l'ambition, il vous manque la structure"
-        subtitle="Ces situations vous parlent ? Vous n'êtes pas seul. Et surtout, il existe une méthode pour en sortir."
+        subtitle="Si l'une de ces situations vous parle, c'est exactement pour cela que la Méthode Lancéo existe."
       />
       <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {problems.map((problem, index) => (

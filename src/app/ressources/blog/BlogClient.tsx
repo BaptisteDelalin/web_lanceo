@@ -19,7 +19,7 @@ export default function BlogClient() {
               Blog
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-dark">
-              Stratégies & Réflexions
+              Le journal de bord de l&apos;entrepreneur structuré.
             </h1>
             <p className="mt-6 text-lg text-text-secondary leading-relaxed">
               Articles et analyses pour nourrir votre réflexion stratégique et accompagner votre développement entrepreneurial.

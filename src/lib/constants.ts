@@ -9,6 +9,7 @@ export const siteConfig = {
   phone: "06 10 33 92 37",
   address: "Lille, France",
   founder: "Mariam Sahid",
+  calLink: "lanceo-access/appel-decouverte",
   socials: {
     linkedin: "https://linkedin.com/in/mariam-sahid",
     instagram: "https://instagram.com/lanceo.access",
@@ -37,7 +38,7 @@ export const offers: Offer[] = [
     slug: "check-up-lanceo",
     palier: 1,
     name: "Check-up Lancéo",
-    tagline: "Un premier regard stratégique sur votre projet",
+    tagline: "Le diagnostic éclair pour savoir où vous en êtes — et par où commencer.",
     description:
       "Un diagnostic rapide pour évaluer la solidité de votre projet et identifier les premiers leviers d'action.",
     target: "Porteurs de projet en phase de lancement",
@@ -55,7 +56,7 @@ export const offers: Offer[] = [
     slug: "lanceo-access-go",
     palier: 2,
     name: "Lancéo Access — GO",
-    tagline: "Passez de l'idée à l'action structurée",
+    tagline: "De l'idée au plan d'action : structurez votre lancement en quelques semaines.",
     description:
       "Un accompagnement ciblé pour structurer votre activité et poser les fondations d'une croissance solide.",
     target: "Entrepreneurs et indépendants en début d'activité",
@@ -73,7 +74,7 @@ export const offers: Offer[] = [
     slug: "diagnostic-adn",
     palier: 3,
     name: "Diagnostic ADN — Session stratégique",
-    tagline: "Décryptez l'ADN de votre entreprise",
+    tagline: "Radiographie stratégique : identifiez vos forces, vos failles et vos leviers de croissance.",
     description:
       "Une session stratégique approfondie pour analyser votre modèle, identifier vos forces et sécuriser votre trajectoire.",
     target: "Entrepreneurs confirmés et dirigeants de TPE",
@@ -91,7 +92,7 @@ export const offers: Offer[] = [
     slug: "accompagnement",
     palier: 4,
     name: "Lancéo Access — Accompagnement stratégique",
-    tagline: "Un partenaire stratégique à vos côtés",
+    tagline: "Un accompagnement rapproché pour transformer votre stratégie en résultats durables.",
     description:
       "Un accompagnement structuré sur plusieurs semaines pour transformer votre vision en résultats concrets et durables.",
     target:
@@ -161,7 +162,7 @@ export const faqItems = [
   {
     question: "Combien coûtent les accompagnements ?",
     answer:
-      "Les tarifs varient selon le palier et la durée d'accompagnement choisis. Le Check-up Lancéo est accessible à partir d'un tarif fixe. Pour les autres paliers, un devis personnalisé est établi après l'appel découverte, en fonction de vos besoins spécifiques.",
+      "Nos tarifs sont adaptés à chaque palier. Le Check-up Lancéo démarre à un tarif accessible pour une session unique. Les programmes GO, Diagnostic ADN et Accompagnement font l'objet d'un devis personnalisé, car leur périmètre dépend de votre situation. Ce que nous pouvons vous dire : lors de l'appel découverte (gratuit), nous vous donnerons une estimation claire et détaillée avant tout engagement.",
   },
   {
     question: "Les accompagnements se font-ils en présentiel ou en ligne ?",
@@ -177,5 +178,20 @@ export const faqItems = [
     question: "Comment se déroule un appel découverte ?",
     answer:
       "L'appel découverte est un échange gratuit de 30 minutes. C'est l'occasion de faire connaissance, de comprendre vos enjeux et de déterminer ensemble le palier d'accompagnement le plus adapté à votre situation. Sans engagement.",
+  },
+  {
+    question: "Quelle est la différence entre Lanceo Access et un coach d'affaires ?",
+    answer:
+      "Un coach vous pose des questions pour que vous trouviez vos propres réponses. Chez Lanceo Access, on va plus loin : on analyse votre situation, on identifie les leviers concrets et on construit avec vous un plan d'action stratégique. C'est du conseil opérationnel, pas du développement personnel.",
+  },
+  {
+    question: "Quels résultats concrets puis-je attendre ?",
+    answer:
+      "Cela dépend de votre point de départ et du palier choisi. À titre d'exemple : un modèle économique clarifié, un plan d'action sur 90 jours, une stratégie de positionnement différenciante, ou l'identification de leviers de croissance inexploités. Chaque accompagnement se termine avec des livrables concrets que vous pouvez exécuter immédiatement.",
+  },
+  {
+    question: "Et si je ne suis pas satisfait(e) ?",
+    answer:
+      "Votre satisfaction est notre priorité. L'appel découverte gratuit est justement là pour vérifier que l'accompagnement est adapté à votre situation avant tout engagement. Si malgré cela vous n'êtes pas satisfait(e) en cours d'accompagnement, nous en discutons ouvertement pour ajuster le programme.",
   },
 ];

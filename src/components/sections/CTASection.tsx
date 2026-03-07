@@ -14,16 +14,16 @@ export default function CTASection() {
           className={`animate-fade-up ${isInView ? "in-view" : ""}`}
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-            Prêt à structurer votre projet ?
+            Votre prochaine étape commence par une conversation.
           </h2>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Réservez votre appel découverte gratuit et faisons le point ensemble
-            sur votre situation, vos objectifs et la meilleure façon
-            d&apos;avancer.
+            30 minutes pour faire le point sur votre situation, identifier ce
+            qui vous bloque, et repartir avec une première piste d&apos;action
+            concrète. Gratuit. Sans engagement.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="/rendez-vous" size="lg">
-              Réserver mon appel découverte
+              Réserver mon créneau
             </Button>
             <Button
               href="/offres"
@@ -31,11 +31,11 @@ export default function CTASection() {
               size="lg"
               className="border-white text-white hover:bg-white hover:text-dark"
             >
-              Voir les offres
+              Découvrir les offres
             </Button>
           </div>
           <p className="mt-4 text-sm text-white/50">
-            30 min · Gratuit · Sans engagement
+            Réponse sous 24h · Créneau en visio ou à Lille
           </p>
         </div>
       </div>

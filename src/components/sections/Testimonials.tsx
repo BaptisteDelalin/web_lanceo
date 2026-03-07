@@ -22,9 +22,9 @@ export default function Testimonials() {
             className={`bg-cream rounded-lg p-8 animate-fade-up ${isInView ? "in-view" : ""}`}
             style={{ transitionDelay: `${index * 0.1}s` }}
           >
-            <div className="flex items-center gap-1 mb-4">
+            <div className="flex items-center gap-1 mb-4" role="img" aria-label="Note : 5 étoiles sur 5">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-primary text-lg">
+                <span key={i} className="text-primary text-lg" aria-hidden="true">
                   &#9733;
                 </span>
               ))}

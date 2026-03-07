@@ -19,10 +19,10 @@ export default function OffresClient() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block text-sm font-medium text-primary tracking-wide uppercase mb-4">
-              Nos offres
+              Offres d&apos;accompagnement
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-dark">
-              Un accompagnement adapté à chaque étape
+              Choisissez l&apos;accompagnement qui correspond à votre étape.
             </h1>
             <p className="mt-6 text-lg text-text-secondary leading-relaxed">
               Découvrez nos 4 paliers d&apos;accompagnement, conçus pour

@@ -5,7 +5,36 @@ import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 import CTASection from "@/components/sections/CTASection";
-import { offers } from "@/lib/constants";
+const methodSteps = [
+  {
+    step: 1,
+    title: "Diagnostic",
+    subtitle: "Comprendre où vous en êtes",
+    description:
+      "Avant d'agir, on fait le point. On analyse votre situation actuelle : modèle économique, positionnement, forces et points de blocage. Ce diagnostic pose les bases de tout ce qui suivra.",
+  },
+  {
+    step: 2,
+    title: "Structuration",
+    subtitle: "Poser les fondations",
+    description:
+      "Une fois le diagnostic posé, on structure. Vision clarifiée, modèle économique solidifié, plan d'action construit étape par étape. Vous savez exactement où aller et comment y arriver.",
+  },
+  {
+    step: 3,
+    title: "Stratégie",
+    subtitle: "Identifier les leviers de croissance",
+    description:
+      "On va en profondeur. Analyse de rentabilité, cartographie des forces et faiblesses, identification des opportunités inexploitées. Vous repartez avec une feuille de route stratégique actionnable.",
+  },
+  {
+    step: 4,
+    title: "Accompagnement",
+    subtitle: "Avancer ensemble, durablement",
+    description:
+      "Le vrai changement prend du temps. Un suivi rapproché sur plusieurs semaines pour transformer votre stratégie en résultats concrets. Ajustements continus, sessions régulières, résultats mesurables.",
+  },
+];
 
 const personas = [
   {
@@ -36,10 +65,10 @@ export default function MethodeClient() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block text-sm font-medium text-primary tracking-wide uppercase mb-4">
-              Notre approche
+              La méthode
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-dark">
-              La Méthode Lancéo
+              La Méthode Lancéo : 4 étapes pour passer de l&apos;ambition aux résultats.
             </h1>
             <p className="mt-6 text-lg text-text-secondary leading-relaxed">
               Une approche structurée et progressive pour accompagner chaque
@@ -74,13 +103,13 @@ export default function MethodeClient() {
 
       <Section background="cream-dark">
         <SectionTitle
-          title="4 paliers pour structurer votre réussite"
-          subtitle="Un parcours évolutif, du diagnostic rapide à l'accompagnement stratégique complet."
+          title="4 étapes pour transformer votre ambition en résultats"
+          subtitle="Chaque étape de la Méthode Lancéo vous rapproche d'une stratégie claire et d'une exécution confiante."
         />
         <div className="space-y-12 max-w-4xl mx-auto">
-          {offers.map((offer, index) => (
+          {methodSteps.map((step, index) => (
             <motion.div
-              key={offer.slug}
+              key={step.step}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -89,32 +118,30 @@ export default function MethodeClient() {
             >
               <div className="flex justify-center">
                 <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-display text-xl font-bold shadow-lg">
-                  {offer.palier}
+                  {step.step}
                 </div>
               </div>
               <div className="bg-white rounded-lg p-8 shadow-sm border border-cream-dark">
                 <span className="text-sm font-medium text-primary">
-                  Palier {offer.palier}
+                  Étape {step.step}
                 </span>
-                <h3 className="font-display text-xl font-semibold text-dark mt-1 mb-3">
-                  {offer.name}
+                <h3 className="font-display text-xl font-semibold text-dark mt-1 mb-1">
+                  {step.title}
                 </h3>
-                <p className="text-text-secondary leading-relaxed mb-4">
-                  {offer.description}
+                <p className="text-sm text-accent font-medium mb-3">
+                  {step.subtitle}
                 </p>
-                <p className="text-sm text-accent mb-4">
-                  <strong>Pour qui :</strong> {offer.target}
+                <p className="text-text-secondary leading-relaxed">
+                  {step.description}
                 </p>
-                <Button
-                  href={`/offres/${offer.slug}`}
-                  variant="ghost"
-                  size="sm"
-                >
-                  En savoir plus &rarr;
-                </Button>
               </div>
             </motion.div>
           ))}
+          <div className="text-center pt-4">
+            <Button href="/offres" variant="primary" size="lg">
+              Découvrir les offres détaillées
+            </Button>
+          </div>
         </div>
       </Section>
 

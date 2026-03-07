@@ -14,23 +14,23 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className="inline-block text-sm font-medium text-primary tracking-wide uppercase mb-4">
-            Cabinet de conseil en stratégie — Lille
+            Conseil en stratégie entrepreneuriale à Lille
           </span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-dark leading-tight">
-            Structurez votre vision,{" "}
-            <span className="text-primary">accélérez votre trajectoire</span>
+            Vous avez la vision.{" "}
+            <span className="text-primary">Il vous manque le plan de bataille.</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl">
-            Accompagnement stratégique sur mesure pour porteurs de projet,
-            entrepreneurs et dirigeants de TPE/PME en Hauts-de-France. Passez
-            de l&apos;ambition à l&apos;action structurée.
+            En 4 à 12 semaines, passez d&apos;un projet ambitieux mais flou à
+            une stratégie claire, un modèle économique solide et un plan
+            d&apos;action que vous exécutez avec confiance.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Button href="/rendez-vous" size="lg">
-              Réserver un appel découverte
+              Réserver mon appel découverte gratuit
             </Button>
             <Button href="/methode" variant="outline" size="lg">
-              Découvrir la méthode
+              Voir comment ça marche
             </Button>
           </div>
           <p className="mt-3 text-sm text-text-secondary">
