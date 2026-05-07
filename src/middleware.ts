@@ -54,6 +54,13 @@ export function middleware(request: NextRequest) {
     "camera=(), microphone=(), geolocation=()"
   );
 
+  // --- Bloque l'indexation sur les domaines de preview (vercel.app, etc.)
+  // Disparait automatiquement quand le site est servi depuis lanceo-access.fr
+  const host = request.headers.get("host") ?? "";
+  if (!host.endsWith("lanceo-access.fr")) {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+
   // --- Protections specifiques aux routes /api/* ---
   if (request.nextUrl.pathname.startsWith("/api")) {
     // 1. Verification de l'Origin
